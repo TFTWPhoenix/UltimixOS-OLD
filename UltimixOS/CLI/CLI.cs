@@ -63,19 +63,19 @@ namespace UltimixOS.CLI
                 } else if (command.StartsWith("echotofile "))
                 {
 
-                    System.IO.File.WriteAllText(command.Split(" > ")[0].Split("echotofile ")[1],command.Split(" > ")[1]);
+                    hypervisor.fileWriteText(command.Split("echotofile ")[1].Split(" > ")[0], command.Split(" > ")[1]);
 
                 } else if (command.StartsWith("cat ")) {
 
-                    hypervisor.ConsoleOutLine(System.IO.File.ReadAllText(command.Split("cat ")[1]).Replace("\\n","\n"));
+                    hypervisor.ConsoleOutLine(hypervisor.readFileText(command.Split("cat ")[1]).Replace("\\n","\n"));
                 
                 } else if (command.StartsWith("ls "))
                 {
 
-                    for(int i = 0; i < System.IO.Directory.GetFiles(command.Split("ls ")[1]).Length; i++)
+                    for(int i = 0; i < hypervisor.getDirFiles(command.Split("ls ")[1]).Length; i++)
                     {
 
-                        string filename = System.IO.Directory.GetFiles(command.Split("ls ")[1])[i];
+                        string filename = hypervisor.getDirFiles(command.Split("ls ")[1])[i];
 
                         if(filename.EndsWith(".text") || filename.EndsWith(".txt"))
                         {
@@ -115,22 +115,22 @@ namespace UltimixOS.CLI
 
 
                     }
-                    for(int i = 0; i < System.IO.Directory.GetDirectories(command.Split("ls ")[1]).Length; i++)
+                    for(int i = 0; i < hypervisor.dirGetDirs(command.Split("ls ")[1]).Length; i++)
                     {
 
-                        hypervisor.ConsoleOutLine("[DIR] " + System.IO.Directory.GetDirectories(command.Split("ls ")[1])[i]);
+                        hypervisor.ConsoleOutLine("[DIR] " + hypervisor.dirGetDirs(command.Split("ls ")[1])[i]);
 
                     }
 
                 } else if (command.StartsWith("rm "))
                 {
 
-                    System.IO.File.Delete(command.Split("rm ")[1]);
+                    hypervisor.removeFile(command.Split("rm ")[1]);
 
                 } else if (command.StartsWith("rmdir "))
                 {
 
-                    System.IO.Directory.Delete(command.Split("rmdir ")[1]);
+                    hypervisor.removeDir(command.Split("rmdir ")[1]);
 
                 }
 

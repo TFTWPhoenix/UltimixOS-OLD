@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace UltimixOS.Drivers
 {
@@ -76,6 +77,110 @@ namespace UltimixOS.Drivers
 
                 }
                 i++;
+
+            }
+
+        }
+
+        public string readFileText(string path)
+        {
+
+            string output = "";
+
+            if (File.Exists(path))
+            {
+
+                output = File.ReadAllText(path);
+
+            } else
+            {
+
+                ConsoleOutLine("Hypervisor: File not found.");
+
+            }
+            return output;
+
+        }
+
+        public void fileWriteText(string path, string text)
+        {
+
+            File.WriteAllText(path, text);
+
+        }
+
+        public string[] getDirFiles(string path)
+        {
+
+            string[] output = { };
+
+            if(Directory.Exists(path))
+            {
+
+                output = Directory.GetFiles(path);
+
+            }
+
+            return output;
+
+        }
+
+        public string[] dirGetDirs(string path)
+        {
+
+            string[] output = { };
+
+            if(Directory.Exists(path))
+            {
+
+                output = Directory.GetDirectories(path);
+
+            }
+
+            return output;
+
+        }
+
+        public void removeFile(string path)
+        {
+
+            if (File.Exists(path))
+            {
+
+                File.Delete(path);
+
+            }
+            else
+            {
+
+                ConsoleOutLine("Hypervisor: File not found.");
+
+            }
+
+        }
+
+        public void removeDir(string path)
+        {
+
+            if(Directory.Exists(path))
+            {
+
+                if(Directory.GetFiles(path).Length == 0 && Directory.GetDirectories(path).Length == 0)
+                {
+
+                    Directory.Delete(path);
+
+                } else
+                {
+
+                    ConsoleOutLine("Hypervisor: Directory not empty.");
+
+                }
+                
+            } else
+            {
+
+                ConsoleOutLine("Hypervisor: Directory not found.");
 
             }
 
