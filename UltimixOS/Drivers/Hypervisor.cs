@@ -50,37 +50,7 @@ namespace UltimixOS.Drivers
 
         }
 
-        public void hyperexec(string[] cmds)
-        {
 
-            int i = 0;
-            while(i < cmds.Length)
-            {
-
-                if(cmds[i] == "exit")
-                {
-
-                    return;
-
-                } else if (cmds[i] == "prntout")
-                {
-
-                    this.ConsoleOut(cmds[i + 1]);
-                    i++;
-
-                }
-                else if (cmds[i] == "prntoutln")
-                {
-
-                    this.ConsoleOutLine(cmds[i + 1]);
-                    i++;
-
-                }
-                i++;
-
-            }
-
-        }
 
         public string readFileText(string path)
         {
