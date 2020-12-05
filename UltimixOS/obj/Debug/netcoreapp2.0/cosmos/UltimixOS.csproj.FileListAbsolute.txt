@@ -1,0 +1,9 @@
+C:\Users\TFTWPhoenix\Documents\GitHub\UltimixOS\UltimixOS\bin\Debug\netcoreapp2.0\cosmos\UltimixOS.deps.json
+C:\Users\TFTWPhoenix\Documents\GitHub\UltimixOS\UltimixOS\bin\Debug\netcoreapp2.0\cosmos\UltimixOS.dll
+C:\Users\TFTWPhoenix\Documents\GitHub\UltimixOS\UltimixOS\bin\Debug\netcoreapp2.0\cosmos\UltimixOS.pdb
+C:\Users\TFTWPhoenix\Documents\GitHub\UltimixOS\UltimixOS\obj\Debug\netcoreapp2.0\cosmos\UltimixOS.csprojAssemblyReference.cache
+C:\Users\TFTWPhoenix\Documents\GitHub\UltimixOS\UltimixOS\obj\Debug\netcoreapp2.0\cosmos\UltimixOS.AssemblyInfoInputs.cache
+C:\Users\TFTWPhoenix\Documents\GitHub\UltimixOS\UltimixOS\obj\Debug\netcoreapp2.0\cosmos\UltimixOS.AssemblyInfo.cs
+C:\Users\TFTWPhoenix\Documents\GitHub\UltimixOS\UltimixOS\obj\Debug\netcoreapp2.0\cosmos\UltimixOS.csproj.CoreCompileInputs.cache
+C:\Users\TFTWPhoenix\Documents\GitHub\UltimixOS\UltimixOS\obj\Debug\netcoreapp2.0\cosmos\UltimixOS.dll
+C:\Users\TFTWPhoenix\Documents\GitHub\UltimixOS\UltimixOS\obj\Debug\netcoreapp2.0\cosmos\UltimixOS.pdb
