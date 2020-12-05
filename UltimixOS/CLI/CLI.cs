@@ -34,6 +34,11 @@ namespace UltimixOS.CLI
                     hypervisor.ConsoleOutLine("exit");
                     hypervisor.ConsoleOutLine("shutdown");
                     hypervisor.ConsoleOutLine("reboot");
+                    hypervisor.ConsoleOutLine("echotofile [file] > [data]");
+                    hypervisor.ConsoleOutLine("cat [file]");
+                    hypervisor.ConsoleOutLine("ls [directory]");
+                    hypervisor.ConsoleOutLine("rm [file]");
+                    hypervisor.ConsoleOutLine("rmdir [directory]");
 
                 }
                 else if (command == "exit")
@@ -54,6 +59,78 @@ namespace UltimixOS.CLI
 
                     hypervisor.ConsoleOutLine("Rebooting...");
                     hypervisor.Reboot();
+
+                } else if (command.StartsWith("echotofile "))
+                {
+
+                    System.IO.File.WriteAllText(command.Split(" > ")[0].Split("echotofile ")[1],command.Split(" > ")[1]);
+
+                } else if (command.StartsWith("cat ")) {
+
+                    hypervisor.ConsoleOutLine(System.IO.File.ReadAllText(command.Split("cat ")[1]).Replace("\\n","\n"));
+                
+                } else if (command.StartsWith("ls "))
+                {
+
+                    for(int i = 0; i < System.IO.Directory.GetFiles(command.Split("ls ")[1]).Length; i++)
+                    {
+
+                        string filename = System.IO.Directory.GetFiles(command.Split("ls ")[1])[i];
+
+                        if(filename.EndsWith(".text") || filename.EndsWith(".txt"))
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [Text File (.txt/.text)]");
+
+                        } else if (filename.EndsWith(".sys"))
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [System File (.sys)]");
+
+                        }
+                        else if (filename.EndsWith(".hpx"))
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [Hypervisor Executable (.hpx)]");
+
+                        }
+                        else if (filename.EndsWith(".log"))
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [Log File (.log)]");
+
+                        }
+                        else if (filename.EndsWith(".dmp"))
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [Dump File (.dmp)]");
+
+                        }
+                        else
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename);
+
+                        }
+
+
+                    }
+                    for(int i = 0; i < System.IO.Directory.GetDirectories(command.Split("ls ")[1]).Length; i++)
+                    {
+
+                        hypervisor.ConsoleOutLine("[DIR] " + System.IO.Directory.GetDirectories(command.Split("ls ")[1])[i]);
+
+                    }
+
+                } else if (command.StartsWith("rm "))
+                {
+
+                    System.IO.File.Delete(command.Split("rm ")[1]);
+
+                } else if (command.StartsWith("rmdir "))
+                {
+
+                    System.IO.Directory.Delete(command.Split("rmdir ")[1]);
 
                 }
 
