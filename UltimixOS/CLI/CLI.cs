@@ -63,7 +63,7 @@ namespace UltimixOS.CLI
                 } else if (command.StartsWith("echotofile "))
                 {
 
-                    hypervisor.fileWriteText(command.Split("echotofile ")[1].Split(" > ")[0], command.Split(" > ")[1]);
+                    hypervisor.fileWriteText(command.Split("echotofile ")[1].Split(" > ")[0], command.Split(" > ")[1].Replace("\\n","\n"));
 
                 } else if (command.StartsWith("cat ")) {
 
