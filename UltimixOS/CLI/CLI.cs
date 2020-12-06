@@ -132,6 +132,17 @@ namespace UltimixOS.CLI
 
                     hypervisor.removeDir(command.Split("rmdir ")[1]);
 
+                } else if (command.StartsWith("iapps "))
+                {
+
+                    if(command.Split("iapps ")[1] == "--list" || command.Split("iapps ")[1] == "-l")
+                    {
+
+                        hypervisor.ConsoleOutLine("Integrated Apps (IApps) List");
+                        hypervisor.ConsoleOutLine("");
+                        
+                    }
+
                 }
 
             }
