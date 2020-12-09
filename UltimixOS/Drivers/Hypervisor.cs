@@ -72,10 +72,31 @@ namespace UltimixOS.Drivers
 
         }
 
+        public string[] readFileLns(string path)
+        {
+
+
+            if (File.Exists(path))
+            {
+
+                return File.ReadAllLines(path);
+
+            }
+            else
+            {
+
+                ConsoleOutLine("Hypervisor: File not found.");
+                string[] outpt = {""};
+                return outpt;
+
+            }
+
+        }
+
         public void fileWriteText(string path, string text)
         {
 
-            File.WriteAllText(path, text);
+            File.WriteAllText(path, text.Replace("\\n","\n"));
 
         }
 

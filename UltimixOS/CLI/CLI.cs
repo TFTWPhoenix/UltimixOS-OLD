@@ -143,6 +143,12 @@ namespace UltimixOS.CLI
                         
                     }
 
+                } else if (command.StartsWith("uasm "))
+                {
+
+                    UASM.Exec exc = new UASM.Exec();
+                    exc.exec(hypervisor.readFileLns(command.Split("uasm ")[1]));
+
                 }
 
             }
