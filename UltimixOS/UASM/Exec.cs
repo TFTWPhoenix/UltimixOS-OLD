@@ -22,6 +22,14 @@ namespace UltimixOS.UASM
         {
 
             int i = 0;
+
+            if (asm[0].StartsWith("#define entry "))
+            {
+
+                i = int.Parse(asm[0].Split("#define entry ")[1]);
+
+            }
+
             while(i < asm.Length)
             {
 
