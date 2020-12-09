@@ -106,6 +106,12 @@ namespace UltimixOS.CLI
                             hypervisor.ConsoleOutLine("[FILE] " + filename + " [Dump File (.dmp)]");
 
                         }
+                        else if (filename.EndsWith(".uasm"))
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [Ultimix Assembly File (.uasm)]");
+
+                        }
                         else
                         {
 
