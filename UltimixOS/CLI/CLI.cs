@@ -8,11 +8,19 @@ namespace UltimixOS.CLI
     {
 
         Drivers.Hypervisor hypervisor = Kernel.getHypervisor();
+        string username;
 
         public CLI()
         {
 
+            username = "defaultuser";
 
+        }
+
+        public CLI(string username)
+        {
+
+            this.username = username;
 
         }
         
@@ -24,7 +32,7 @@ namespace UltimixOS.CLI
             {
 
 
-                hypervisor.ConsoleOut("Ultimix> ");
+                hypervisor.ConsoleOut(username + " | Ultimix> ");
                 string command = hypervisor.ConsoleIn();
                 if (command == "help" || command == "?")
                 {
@@ -228,6 +236,19 @@ namespace UltimixOS.CLI
                 {
 
                     Drivers.UltimixSystemProtection.verifyAndRepair();
+
+                } else if (command.StartsWith("useradd "))
+                {
+
+                    Drivers.UserManager.users.Add(command.Split("useradd ")[1]);
+                    hypervisor.ConsoleOutLine("Added user.");
+                    Drivers.UserManager.saveUsers();
+                    hypervisor.ConsoleOutLine("Saved user list to disk.");
+
+                } else if (command.StartsWith("switchuser "))
+                {
+
+                    Drivers.UserManager.ShellAsUser(command.Split("switchuser ")[1]);
 
                 }
 

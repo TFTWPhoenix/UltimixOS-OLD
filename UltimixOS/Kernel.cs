@@ -17,12 +17,15 @@ namespace UltimixOS
             Drivers.FSDriver.initFS();
             Console.WriteLine("[  FS  ] FileSystem Initialized.");
             Drivers.UltimixSystemProtection.verifyAndRepair();
+            Drivers.UserManager.loadUsers();
+
         }
 
         protected override void Run()
         {
 
             Drivers.UltimixSystemProtection.verifyAndRepair();
+            Drivers.UserManager.loadUsers();
             cli.run();
             Drivers.UltimixSystemProtection.verifyAndRepair();
 

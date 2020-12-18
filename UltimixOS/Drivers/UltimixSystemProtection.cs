@@ -31,7 +31,7 @@ namespace UltimixOS.Drivers
                 Directory.CreateDirectory(@"0:\Ultimix\bin");
                 Directory.CreateDirectory(@"0:\Ultimix\usr");
             }
-
+            
         }
 
     }
