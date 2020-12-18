@@ -60,29 +60,34 @@ namespace UltimixOS.CLI
                     hypervisor.ConsoleOutLine("Rebooting...");
                     hypervisor.Reboot();
 
-                } else if (command.StartsWith("echotofile "))
+                }
+                else if (command.StartsWith("echotofile "))
                 {
 
-                    hypervisor.fileWriteText(command.Split("echotofile ")[1].Split(" > ")[0], command.Split(" > ")[1].Replace("\\n","\n"));
+                    hypervisor.fileWriteText(command.Split("echotofile ")[1].Split(" > ")[0], command.Split(" > ")[1].Replace("\\n", "\n"));
 
-                } else if (command.StartsWith("cat ")) {
-
-                    hypervisor.ConsoleOutLine(hypervisor.readFileText(command.Split("cat ")[1]).Replace("\\n","\n"));
-                
-                } else if (command.StartsWith("ls "))
+                }
+                else if (command.StartsWith("cat "))
                 {
 
-                    for(int i = 0; i < hypervisor.getDirFiles(command.Split("ls ")[1]).Length; i++)
+                    hypervisor.ConsoleOutLine(hypervisor.readFileText(command.Split("cat ")[1]).Replace("\\n", "\n"));
+
+                }
+                else if (command.StartsWith("ls "))
+                {
+
+                    for (int i = 0; i < hypervisor.getDirFiles(command.Split("ls ")[1]).Length; i++)
                     {
 
                         string filename = hypervisor.getDirFiles(command.Split("ls ")[1])[i];
 
-                        if(filename.EndsWith(".text") || filename.EndsWith(".txt"))
+                        if (filename.EndsWith(".text") || filename.EndsWith(".txt"))
                         {
 
                             hypervisor.ConsoleOutLine("[FILE] " + filename + " [Text File (.txt/.text)]");
 
-                        } else if (filename.EndsWith(".sys"))
+                        }
+                        else if (filename.EndsWith(".sys"))
                         {
 
                             hypervisor.ConsoleOutLine("[FILE] " + filename + " [System File (.sys)]");
@@ -115,41 +120,105 @@ namespace UltimixOS.CLI
                         else
                         {
 
-                            hypervisor.ConsoleOutLine("[FILE] " + filename);
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [Unknown File]");
 
                         }
 
 
                     }
-                    for(int i = 0; i < hypervisor.dirGetDirs(command.Split("ls ")[1]).Length; i++)
+                    for (int i = 0; i < hypervisor.dirGetDirs(command.Split("ls ")[1]).Length; i++)
                     {
 
                         hypervisor.ConsoleOutLine("[DIR] " + hypervisor.dirGetDirs(command.Split("ls ")[1])[i]);
 
                     }
 
-                } else if (command.StartsWith("rm "))
+                }
+                else if (command == "ls") {
+
+                    for (int i = 0; i < hypervisor.getDirFiles(@"0:\").Length; i++)
+                    {
+
+                        string filename = hypervisor.getDirFiles(@"0:\")[i];
+
+                        if (filename.EndsWith(".text") || filename.EndsWith(".txt"))
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [Text File (.txt/.text)]");
+
+                        }
+                        else if (filename.EndsWith(".sys"))
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [System File (.sys)]");
+
+                        }
+                        else if (filename.EndsWith(".hpx"))
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [Hypervisor Executable (.hpx)]");
+
+                        }
+                        else if (filename.EndsWith(".log"))
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [Log File (.log)]");
+
+                        }
+                        else if (filename.EndsWith(".dmp"))
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [Dump File (.dmp)]");
+
+                        }
+                        else if (filename.EndsWith(".uasm"))
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [Ultimix Assembly File (.uasm)]");
+
+                        }
+                        else
+                        {
+
+                            hypervisor.ConsoleOutLine("[FILE] " + filename + " [Unknown File]");
+
+                        }
+
+
+                    }
+                    for (int i = 0; i < hypervisor.dirGetDirs(@"0:\").Length; i++)
+                    {
+
+                        hypervisor.ConsoleOutLine("[DIR] " + hypervisor.dirGetDirs(@"0:\")[i]);
+
+                    }
+
+                }
+                else if (command.StartsWith("rm "))
                 {
 
                     hypervisor.removeFile(command.Split("rm ")[1]);
 
-                } else if (command.StartsWith("rmdir "))
+                }
+                else if (command.StartsWith("rmdir "))
                 {
 
                     hypervisor.removeDir(command.Split("rmdir ")[1]);
 
-                } else if (command.StartsWith("iapps "))
+                }
+                else if (command.StartsWith("iapps "))
                 {
 
-                    if(command.Split("iapps ")[1] == "--list" || command.Split("iapps ")[1] == "-l")
+                    if (command.Split("iapps ")[1] == "--list" || command.Split("iapps ")[1] == "-l")
                     {
 
                         hypervisor.ConsoleOutLine("Integrated Apps (IApps) List");
                         hypervisor.ConsoleOutLine("");
-                        
+
                     }
 
-                } else if (command.StartsWith("uasm "))
+                }
+                else if (command.StartsWith("uasm "))
                 {
 
                     UASM.Exec exc = new UASM.Exec();

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TFTWPhoenix\\Documents\\GitHub\\UltimixOS\\UltimixOS\\UltimixOS.csproj": {}
+    "C:\\Users\\chuck\\Documents\\GitHub\\UltimixOS\\UltimixOS\\UltimixOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TFTWPhoenix\\Documents\\GitHub\\UltimixOS\\UltimixOS\\UltimixOS.csproj": {
+    "C:\\Users\\chuck\\Documents\\GitHub\\UltimixOS\\UltimixOS\\UltimixOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TFTWPhoenix\\Documents\\GitHub\\UltimixOS\\UltimixOS\\UltimixOS.csproj",
+        "projectUniqueName": "C:\\Users\\chuck\\Documents\\GitHub\\UltimixOS\\UltimixOS\\UltimixOS.csproj",
         "projectName": "UltimixOS",
-        "projectPath": "C:\\Users\\TFTWPhoenix\\Documents\\GitHub\\UltimixOS\\UltimixOS\\UltimixOS.csproj",
-        "packagesPath": "C:\\Users\\TFTWPhoenix\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TFTWPhoenix\\Documents\\GitHub\\UltimixOS\\UltimixOS\\obj\\",
+        "projectPath": "C:\\Users\\chuck\\Documents\\GitHub\\UltimixOS\\UltimixOS\\UltimixOS.csproj",
+        "packagesPath": "C:\\Users\\chuck\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chuck\\Documents\\GitHub\\UltimixOS\\UltimixOS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\TFTWPhoenix\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\chuck\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -26,7 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\TFTWPhoenix\\AppData\\Roaming\\Cosmos User Kit\\packages\\": {},
+          "C:\\Users\\chuck\\AppData\\Roaming\\Cosmos User Kit\\packages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -83,7 +83,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
