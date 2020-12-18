@@ -14,7 +14,7 @@ namespace UltimixOS.UASM
         {
 
             mem = new string[8192];
-            retloc = 0;
+            retloc = -1;
 
         }
 
@@ -33,18 +33,25 @@ namespace UltimixOS.UASM
             while(i < asm.Length)
             {
 
-                if(asm[i].StartsWith("jmp "))
+                if (asm[i].StartsWith("jmp "))
                 {
 
                     retloc = i;
                     i = int.Parse(asm[i].Split("jmp ")[1]);
 
-                } else if (asm[i] == "ret")
+                }
+                else if (asm[i] == "ret")
                 {
 
-                    i = retloc;
+                    if (retloc != -1)
+                    {
 
-                } else if (asm[i].StartsWith("prnt "))
+                        i = retloc;
+
+                    }
+
+                }
+                else if (asm[i].StartsWith("prnt "))
                 {
 
                     Kernel.getHypervisor().ConsoleOut(asm[i].Split("prnt ")[1]);
@@ -54,6 +61,22 @@ namespace UltimixOS.UASM
                 {
 
                     Kernel.getHypervisor().ConsoleOutLine(asm[i].Split("prntln ")[1]);
+
+                }
+                else if (asm[i].StartsWith(";")) { }
+                else if (asm[i].StartsWith("[lib-include:") && asm[i].EndsWith("]")) { 
+                
+                    
+                
+                }
+
+
+
+
+                else
+                {
+
+                    Kernel.getHypervisor().ConsoleOutLine("[Exec Error] Invalid instruction: " + asm[i] + "\nEncountered at line: " + i);
 
                 }
 

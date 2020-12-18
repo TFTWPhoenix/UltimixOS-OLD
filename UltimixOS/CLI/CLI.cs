@@ -224,6 +224,11 @@ namespace UltimixOS.CLI
                     UASM.Exec exc = new UASM.Exec();
                     exc.exec(hypervisor.readFileLns(command.Split("uasm ")[1]));
 
+                } else if (command == "usp-verif")
+                {
+
+                    Drivers.UltimixSystemProtection.verifyAndRepair();
+
                 }
 
             }

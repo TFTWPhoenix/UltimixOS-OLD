@@ -16,12 +16,15 @@ namespace UltimixOS
             Console.WriteLine("[COSMOS] Cosmos has booted successfully.");
             Drivers.FSDriver.initFS();
             Console.WriteLine("[  FS  ] FileSystem Initialized.");
+            Drivers.UltimixSystemProtection.verifyAndRepair();
         }
 
         protected override void Run()
         {
 
+            Drivers.UltimixSystemProtection.verifyAndRepair();
             cli.run();
+            Drivers.UltimixSystemProtection.verifyAndRepair();
 
         }
 
