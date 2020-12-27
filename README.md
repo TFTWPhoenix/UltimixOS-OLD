@@ -1,9 +1,11 @@
 # UltimixOS
  An Operating System destined to not go the way of the dodo. Made using the Cosmos User Kit.
  
-### Roadmap
+### Ultimix is undergoing a full rewrite.
+In an effort to use [the Aura Team](https://github.com/aura-systems)'s fork of Cosmos, UltimixOS is being fully rewritten.
+During this rewrite items such as the roadmap may be incorrect. License has also been switched to BSD3-Clause.
 
-See the Roadmap for information
 
-### Help Wanted
-Say in issues if you want to help. Any help would be greatly appreciated.
+### Credits
+
+[The Aura Team](https://github.com/aura-systems) - Fork of Cosmos
